@@ -1,4 +1,4 @@
-package com.base.model;
+package com.base.common.model;
 
 public class Status {
     public Status() {

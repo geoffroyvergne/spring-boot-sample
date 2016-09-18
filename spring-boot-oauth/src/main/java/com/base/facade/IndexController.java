@@ -1,6 +1,6 @@
 package com.base.facade;
 
-import com.base.model.Status;
+import com.base.common.model.Status;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

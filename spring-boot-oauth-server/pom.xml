@@ -3,23 +3,20 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.base</groupId>
-	<artifactId>spring-oauth2-identity-server</artifactId>
+	<artifactId>spring-boot-oauth-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-oauth2-identity-server</name>
-
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.0.RELEASE</version>
-		<relativePath/>
+		<!-- Your own application should inherit from spring-boot-starter-parent -->
+		<artifactId>spring-boot-samples</artifactId>
+		<groupId>com.base</groupId>
+		<relativePath>../pom.xml</relativePath>
+		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
+		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
 
 	<dependencies>

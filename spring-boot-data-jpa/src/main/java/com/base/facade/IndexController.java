@@ -1,6 +1,6 @@
 package com.base.facade;
 
-import com.base.model.Status;
+import com.base.common.model.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
