@@ -12,5 +12,5 @@ java -jar target/spring-boot-data-jpa-0.1.0.jar
 
 java -jar -Dspring.profiles.active=production target/spring-boot-data-jpa-0.1.0.jar --server.port=8082
 
-curl http://localhost:8080/index/test
-curl http://localhost:8080/employee/list
+curl http://localhost:8080/index/test | python -mjson.tool
+curl http://localhost:8080/employee/list | python -mjson.tool

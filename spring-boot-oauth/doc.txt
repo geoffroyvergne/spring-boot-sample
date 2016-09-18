@@ -12,9 +12,9 @@ gradle bootRun
 
 java -jar target/spring-boot-oauth-0.1.0.jar
 
-curl http://localhost:8080/index/test
+curl http://localhost:8080/index/test | python -mjson.tool
 
-curl http://localhost:8080/employee/list
+curl http://localhost:8080/employee/list | python -mjson.tool
 
 curl -X POST -kliu \
     clientapp:123456 \
@@ -25,12 +25,14 @@ curl -X POST -kliu \
     -d client_id=clientapp \
     -d client_secret=123456 \
     -d username=user \
-    -d password=user
+    -d password=user \
+    | python -mjson.tool
 
 curl -X POST -liu \
     clientapp:123456 \
     http://localhost:8080/oauth/token \
     -H "Accept: application/json" \
-    -d "password=user&username=user&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp"
+    -d "password=user&username=user&grant_type=password&scope=read%20write&client_secret=123456&client_id=clientapp" \
+    | python -mjson.tool
 
-curl http://localhost:8080/employee/list -H "Authorization: Bearer 215daf9f-9228-4d28-b286-cf80a5763dd5"
+curl http://localhost:8080/employee/list -H "Authorization: Bearer 215daf9f-9228-4d28-b286-cf80a5763dd5" | python -mjson.tool

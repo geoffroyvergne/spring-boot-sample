@@ -12,4 +12,5 @@ curl -X POST -kliu clientapp:123456 \
     -d client_id=clientapp \
     -d client_secret=123456 \
     -d username=user \
-    -d password=user
+    -d password=user \
+    | python -mjson.tool
