@@ -14,3 +14,9 @@ curl -X POST -kliu clientapp:123456 \
     -d username=user \
     -d password=user \
     | python -mjson.tool
+
+
+
+.accessTokenValiditySeconds(oauthClient.getAccessTokenValiditySeconds())
+.resourceIds(oauthClient.getResourcesId())
+tokenServices.setAccessTokenValiditySeconds(300);

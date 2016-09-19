@@ -58,13 +58,10 @@ public class OAuth2ServerConfiguration extends WebMvcConfigurerAdapter {
             for(OauthClients.Client oauthClient : oauthClientsConfig.getClients()) {
                 clients.and()
                     .withClient(oauthClient.getName())
-                    //.accessTokenValiditySeconds(oauthClient.getAccessTokenValiditySeconds())
                     .secret(oauthClient.getSecret())
                     .authorizedGrantTypes(oauthClient.getAuthorizedGrantTypes())
-                    //.resourceIds(oauthClient.getResourcesId())
                     .scopes(oauthClient.getScopes());
             }
-
         }
 
         @Bean
@@ -73,7 +70,6 @@ public class OAuth2ServerConfiguration extends WebMvcConfigurerAdapter {
             DefaultTokenServices tokenServices = new DefaultTokenServices();
             tokenServices.setSupportRefreshToken(true);
             tokenServices.setTokenStore(this.tokenStore);
-            //tokenServices.setAccessTokenValiditySeconds(300);
             return tokenServices;
         }
     }

@@ -16,7 +16,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(ResourceServerSecurityConfigurer resources) {
         // @formatter:off
         resources
-                .resourceId(RESOURCE_ID);
+            .resourceId(RESOURCE_ID);
         // @formatter:on
     }
 
@@ -24,11 +24,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http
-                .authorizeRequests()
-                //.antMatchers("/users").hasRole("ADMIN")
-                .antMatchers("/secured/*").authenticated()
-                .antMatchers("/employee/*").authenticated();
-
+            .authorizeRequests()
+            .antMatchers("/secured/*").authenticated()
+            .antMatchers("/employee/*").authenticated();
         // @formatter:on
     }
 
