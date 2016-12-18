@@ -1,5 +1,4 @@
 
-https://github.com/spring-projects/spring-boot/tree/v1.4.0.RELEASE/spring-boot-samples/spring-boot-sample-data-jpa
 Spring boot oauth2
 
 https://github.com/royclarkson/spring-rest-service-oauth
