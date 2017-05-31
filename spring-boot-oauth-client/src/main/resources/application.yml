@@ -7,15 +7,14 @@ security:
     resource:
       user-info-uri: http://localhost:9000/auth/user
 
-spring:
-  h2:
-    console: enabled: true
-
 logging:
   level:
     org.hibernate.SQL: debug
 
 spring:
+  h2:
+    console:
+      enabled: true
   jpa:
     hibernate.ddl-auto: create-drop
-    jpa.show-sql: true
+    show-sql: true

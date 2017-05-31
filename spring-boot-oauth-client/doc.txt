@@ -37,7 +37,7 @@ curl -li http://localhost:9001/index/test | python -mjson.tool
 
 curl -li http://localhost:9000/secured/user | python -mjson.tool
 
-curl -li -H "Authorization: Bearer fe787973-5179-455b-a7e4-027b99fe89ea" http://localhost:9001/secured/test | python -mjson.tool
+curl -li -H "Authorization: Bearer 3df5bb8b-1659-4fee-beff-2cfa52ebea92" http://localhost:9001/secured/test | python -mjson.tool
 
 curl -li -H "Authorization: Bearer 3cbbde0f-dd75-41d3-8eae-088ceb7a5b83" http://localhost:9000/auth/user | python -mjson.tool
 

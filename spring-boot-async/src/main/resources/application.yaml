@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  contextPath: /
+
+executor:
+  corePoolSize: 2
+  maxPoolSize: 2
+  queueCapacity: 500
+  threadNamePrefix: SpringBootAsync-
