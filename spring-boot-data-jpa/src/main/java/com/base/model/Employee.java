@@ -1,7 +1,6 @@
 package com.base.model;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -10,7 +9,6 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = "Employee.findAll", query = "SELECT e FROM Employee e")
 })
-@XmlRootElement
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
