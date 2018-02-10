@@ -5,7 +5,12 @@ server:
 security:
   oauth2:
     resource:
-      user-info-uri: http://localhost:9000/auth/user
+      #spring
+      #user-info-uri: http://localhost:9000/auth/user
+      #keycloak
+      user-info-uri: http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo
+      #wso2
+      #user-info-uri: http://localhost:9763/oauth2/userinfo?schema=openid
 
 logging:
   level:

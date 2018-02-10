@@ -1,3 +1,7 @@
+server:
+  port: 8181
+  contextPath: /api/test
+
 test:
   value: "test value"
 

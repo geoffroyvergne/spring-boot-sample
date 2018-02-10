@@ -32,16 +32,46 @@ curl -X POST -liu \
     "scope":"openid"
 }
 
-curl -li http://localhost:9001/secured/test | python -mjson.tool
-curl -li http://localhost:9001/index/test | python -mjson.tool
+Keycloak :
 
-curl -li http://localhost:9000/secured/user | python -mjson.tool
+-------------------
 
-curl -li -H "Authorization: Bearer 3df5bb8b-1659-4fee-beff-2cfa52ebea92" http://localhost:9001/secured/test | python -mjson.tool
+{
+  "realm": "test",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "test",
+  "public-client": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 0
+}
 
-curl -li -H "Authorization: Bearer 3cbbde0f-dd75-41d3-8eae-088ceb7a5b83" http://localhost:9000/auth/user | python -mjson.tool
 
-curl -li -H "Authorization: Bearer 867cf521-a804-4ba2-b7b9-b8e0eaa54998" http://localhost:9000/auth/me | python -mjson.tool
+curl -X POST 'http://localhost:8080/auth/realms/test/protocol/openid-connect/token' \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "username=admin" \
+-d "password=admin" \
+-d "grant_type=password" \
+-d "client_id=test"
+
+curl -H "Authorization: Bearer $TOKEN_USER" -H "Accept:application/json" http://127.0.0.1:8080/auth/realms/test/account
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://127.0.0.1:8080/auth/realms/test/protocol/openid-connect/userinfo
+
+------------------
+
+curl http://localhost:9001/secured/test | python -mjson.tool
+curl http://localhost:9001/index/test | python -mjson.tool
+
+curl http://localhost:9000/secured/user | python -mjson.tool
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://127.0.0.1:9001/secured/test | python -mjson.tool
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/user | python -mjson.tool
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/me | python -mjson.tool
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9763/oauth2/userinfo
 
 
 Refresh token :
