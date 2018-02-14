@@ -1,20 +1,17 @@
 server:
   port: 8080
-
-server:
   contextPath: /
 
 spring:
   h2:
     console:
       enabled: true
+  jpa:
+      hibernate:
+        ddl-auto: create-drop
+        show-sql: true
 
 logging:
   level:
     org.hibernate.SQL: debug
 
-spring:
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-      show-sql: true

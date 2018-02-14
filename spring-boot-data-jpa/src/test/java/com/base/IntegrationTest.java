@@ -1,4 +1,4 @@
-package com.base.facade;
+package com.base;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class IndexControllerTest {
+public class IntegrationTest {
     @Autowired
     private MockMvc mvc;
 
@@ -26,6 +26,14 @@ public class IndexControllerTest {
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.code").value(0))
-            .andExpect(jsonPath("$.value").value("index test value"));
+            .andExpect(jsonPath("$.value").value("index"));
+    }
+
+    @Test
+    public void listEmployeeTest() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/employee/list")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].name").value("Penny"));
     }
 }

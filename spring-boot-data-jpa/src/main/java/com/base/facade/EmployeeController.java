@@ -2,6 +2,7 @@ package com.base.facade;
 
 import com.base.model.Employee;
 import com.base.repository.EmployeeRepository;
+import com.base.service.EmployeeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,13 @@ public class EmployeeController {
     private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 
     @Autowired
-    EmployeeRepository employeeRepository;
+    EmployeeService employeeService;
 
     @RequestMapping(value="/list", produces= MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public ResponseEntity<List<Employee>> list() {
 
         logger.info("/employee/list");
 
-        return new ResponseEntity<>(employeeRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(employeeService.findAll(), HttpStatus.OK);
     }
 }
