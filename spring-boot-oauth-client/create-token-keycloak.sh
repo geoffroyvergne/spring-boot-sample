@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+#curl --data "grant_type=password&client_id=test&username=user&password=user123" http://localhost:8080/auth/realms/test/protocol/openid-connect/token
+
 RESULT_TOKEN_ADMIN=`curl -X POST 'http://127.0.0.1:8080/auth/realms/test/protocol/openid-connect/token' \
--H "Content-Type: application/x-www-form-urlencoded" \
+-H "Content-Type:application/x-www-form-urlencoded" \
 -d "username=admin" \
 -d "password=admin" \
 -d "grant_type=password" \
@@ -12,9 +14,9 @@ TOKEN_ADMIN=`echo $RESULT_TOKEN_ADMIN | sed 's/.*access_token":"//g' | sed 's/".
 export TOKEN_ADMIN
 
 RESULT_TOKEN_USER=`curl -X POST 'http://127.0.0.1:8080/auth/realms/test/protocol/openid-connect/token' \
--H "Content-Type: application/x-www-form-urlencoded" \
+-H "Content-Type:application/x-www-form-urlencoded" \
 -d "username=user" \
--d "password=user" \
+-d "password=user123" \
 -d "grant_type=password" \
 -d "client_id=test"`
 

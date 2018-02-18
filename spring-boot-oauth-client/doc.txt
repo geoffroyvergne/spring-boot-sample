@@ -54,24 +54,31 @@ curl -X POST 'http://localhost:8080/auth/realms/test/protocol/openid-connect/tok
 -d "grant_type=password" \
 -d "client_id=test"
 
-curl -H "Authorization: Bearer $TOKEN_USER" -H "Accept:application/json" http://127.0.0.1:8080/auth/realms/test/account
+curl -H "Authorization: Bearer $TOKEN_USER" -H "Accept:application/json" http://localhost:9001/auth/realms/test/account
 
-curl -H "Authorization: Bearer $TOKEN_USER" http://127.0.0.1:8080/auth/realms/test/protocol/openid-connect/userinfo
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/realms/test/protocol/openid-connect/userinfo
 
 ------------------
 
 curl http://localhost:9001/secured/test | python -mjson.tool
 curl http://localhost:9001/index/test | python -mjson.tool
 
-curl http://localhost:9000/secured/user | python -mjson.tool
+curl http://localhost:9001/secured/user | python -mjson.tool
 
-curl -H "Authorization: Bearer $TOKEN_USER" http://127.0.0.1:9001/secured/test | python -mjson.tool
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/secured/test | python -mjson.tool
 
 curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/user | python -mjson.tool
 
 curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/me | python -mjson.tool
 
 curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9763/oauth2/userinfo
+
+curl -H "Authorization: Bearer $TOKEN_USER" https://localhost:9443/oauth2/userinfo?schema=openid
+curl -H "Authorization: Bearer $TOKEN_ADMIN" https://localhost:9443/oauth2/userinfo?schema=openid
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo
+
+
 
 
 Refresh token :

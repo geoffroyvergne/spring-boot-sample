@@ -9,8 +9,10 @@ security:
       #user-info-uri: http://localhost:9000/auth/user
       #keycloak
       user-info-uri: http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo
+      preferTokenInfo: false
       #wso2
       #user-info-uri: http://localhost:9763/oauth2/userinfo?schema=openid
+      #user-info-uri: https://localhost:9443/oauth2/userinfo?schema=openid
 
 logging:
   level:
