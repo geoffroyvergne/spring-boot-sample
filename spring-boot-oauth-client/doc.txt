@@ -60,16 +60,18 @@ curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/realms/te
 
 ------------------
 
-curl http://localhost:9001/secured/test | python -mjson.tool
-curl http://localhost:9001/index/test | python -mjson.tool
+curl http://localhost:9001/oauthclient/secured/test | python -mjson.tool
+curl http://localhost:9001/oauthclient/index/test | python -mjson.tool
 
 curl http://localhost:9001/secured/user | python -mjson.tool
 
-curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/secured/test | python -mjson.tool
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/oauthclient/secured/test | python -mjson.tool
 
-curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/user | python -mjson.tool
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/oauthclient/auth/user | python -mjson.tool
 
-curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/auth/me | python -mjson.tool
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9001/oauthclient/auth/me | python -mjson.tool
+
+curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9000/oauthserver/auth/user
 
 curl -H "Authorization: Bearer $TOKEN_USER" http://localhost:9763/oauth2/userinfo
 
@@ -89,7 +91,7 @@ curl -li --data \
 
 curl -liu \
     clientapp:123456 \
-    http://localhost:9000/oauth/token \
+    http://localhost:9000/oauthserver/oauth/token \
     -d grant_type=refresh_token \
     -d client_id=clientapp \
     -d refresh_token=96ddca13-d727-49a0-8b2b-89b572bebfae \

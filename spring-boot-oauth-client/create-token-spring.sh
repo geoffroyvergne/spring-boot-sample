@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-RESULT_TOKEN_ADMIN=`curl -X POST 'http://localhost:9000/oauth/token' \
+RESULT_TOKEN_ADMIN=`curl -X POST -u clientapp:123456 'http://localhost:9000/oauthserver/oauth/token' \
 -H "Accept: application/json" \
 -d "scope=read%20write" \
 -d "client_id=clientapp" \
@@ -13,7 +13,7 @@ TOKEN_ADMIN=`echo $RESULT_TOKEN_ADMIN | sed 's/.*access_token":"//g' | sed 's/".
 
 export TOKEN_ADMIN
 
-RESULT_TOKEN_USER=`curl -X POST 'http://localhost:4200/oauth/token' \
+RESULT_TOKEN_USER=`curl -X POST -u clientapp:123456 'http://localhost:9000/oauthserver/oauth/token' \
 -H "Accept: application/json" \
 -d "scope=read%20write" \
 -d "client_id=clientapp" \

@@ -1,14 +1,14 @@
 server:
   port: 9001
-  contextPath: /
+  contextPath: /oauthclient
 
 security:
   oauth2:
     resource:
       #spring
-      #user-info-uri: http://localhost:9000/auth/user
+      user-info-uri: http://localhost:9000/oauthserver/auth/user
       #keycloak
-      user-info-uri: http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo
+      #user-info-uri: http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo
       #preferTokenInfo: false
       #wso2
       #user-info-uri: http://localhost:9763/oauth2/userinfo?schema=openid
