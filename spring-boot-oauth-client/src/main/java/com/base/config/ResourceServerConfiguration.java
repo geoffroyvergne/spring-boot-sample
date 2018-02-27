@@ -35,9 +35,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
             .authorizeRequests()
             .antMatchers("/secured/*").authenticated()
             .antMatchers("/employee/*").authenticated()
-            .antMatchers("/auth/*").authenticated()
-                .and()
-                .addFilterAfter(oauth2ClientContextFilter, SecurityContextPersistenceFilter.class);
+            .antMatchers("/auth/*").authenticated();
         // @formatter:on
     }
 

@@ -13,7 +13,7 @@ TOKEN_ADMIN=`echo $RESULT_TOKEN_ADMIN | sed 's/.*access_token":"//g' | sed 's/".
 
 export TOKEN_ADMIN
 
-RESULT_TOKEN_USER=`curl -X POST 'hhttp://localhost:9000/oauth/token' \
+RESULT_TOKEN_USER=`curl -X POST 'http://localhost:4200/oauth/token' \
 -H "Accept: application/json" \
 -d "scope=read%20write" \
 -d "client_id=clientapp" \
@@ -25,3 +25,5 @@ RESULT_TOKEN_USER=`curl -X POST 'hhttp://localhost:9000/oauth/token' \
 TOKEN_USER=`echo $RESULT_TOKEN_USER | sed 's/.*access_token":"//g' | sed 's/".*//g'`
 
 export TOKEN_USER
+
+
