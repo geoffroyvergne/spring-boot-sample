@@ -55,7 +55,7 @@ public class OAuth2ServerConfiguration extends WebMvcConfigurerAdapter {
             endpoints
                 .tokenStore(this.tokenStore)
                 .authenticationManager(this.authenticationManager)
-                    .allowedTokenEndpointRequestMethods()
+                    //.allowedTokenEndpointRequestMethods()
                 .userDetailsService(userDetailsService);
             // @formatter:on
         }
